@@ -1,26 +1,48 @@
-import { useState, useEffect } from 'react'
-import api from './utils/api'
-import { useSelector, useDispatch } from 'react-redux'
-import { getApiConfiguration } from './store/homeSlice'
+import { useState, useEffect } from 'react';
+import api from './utils/api';
+import { useSelector, useDispatch } from 'react-redux';
+import { getApiConfiguration } from './store/homeSlice';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from './pages/Home/Home';
+import Details from "./pages/Details";
+import NotFound from "./pages/NotFound";
+import Search from "./pages/Search";
+import Explore from "./pages/Explore";
+import "./styles/Style.scss";
 
 function App() {
   const dispatch = useDispatch()
   const {url} = useSelector((state) => state.home);
 
  useEffect(()=>{
-  apiCalling();
+  fetchApi();
  },[])
 
-const apiCalling = () => {
-  api("/movie/popular").then((res) => {
-    dispatch(getApiConfiguration(res))
+const fetchApi = () => {
+  api("/configuration").then((res) => {
+    const url = {
+      backdrop: res.images.secure_base_url + "original",
+      poster: res.images.secure_base_url + "original",
+      profile: res.images.secure_base_url + "original",
+    }
+    dispatch(getApiConfiguration(url))
   })
 }
 
   return (
-    <div>
-      {url?.total_pages}
-    </div>
+    <BrowserRouter>
+    {/* <Header /> */}
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/:mediaType/:id' element={<Details />} />
+      <Route path='/search/:query' element={<Search />} />
+      <Route path='/explore/:mediaType' element={<Explore />} />
+      <Route path='*' element={<NotFound />} />
+    </Routes>
+    {/* <Footer /> */}
+    </BrowserRouter>
   )
 }
 

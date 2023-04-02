@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Crimson+Pro:wght@200&family=Roboto:wght@100&display=swap');
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Alkatra', 'cursive';
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
@@ -10,14 +12,14 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --black: #04152d;
-  --black2: #041226;
-  --black3: #020c1b;
-  --black-lighter: #1c4b91;
-  --black-light: #173d77;
-  --pink: #da2f68;
-  --orange: #f89e00;
-  --gradient: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+  --black: #0d1014;
+  --black2: #0d1015;
+  --black3: #06080b;
+  --black-lighter: #2b3443;
+  --black-light: #31363e;
+  --green: #6cae69;
+  --gold: #d1bc51;
+  --gradient: linear-gradient(to right, #525252, #3d72b4);
 }
 
 * {

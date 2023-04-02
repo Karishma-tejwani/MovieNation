@@ -1,0 +1,118 @@
+@import "../styles/mixins.scss";
+
+//----------HeroBanner---------//
+
+.heroBanner{
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    @include md{
+        height: 700px;
+    }
+    .image{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.6;
+        overflow: hidden;
+        .lazy-load-image-background{
+            width: 100%;
+            height: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    .layer{
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #0d1014 83%);
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: rgb(219, 219, 219);
+        text-align: center;
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        .title{
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            @include md{
+                margin-bottom: 0;
+                font-size: 70px;
+            }
+        }
+        .subTitle{
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            color: rgb(190, 184, 184);
+            @include md{
+                font-size: 24;
+            }
+        }
+        .search{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            input{
+                width: calc(80% - 50px);
+                height: 40px;
+                background-color: rgb(222, 215, 215);
+                outline: 0;
+                border: 0;
+                border-radius: 30px 0 0 30px;
+                padding: 0 15px;
+                font-size: 14px;
+                @include md{
+                    width: calc(80% - 80px);
+                    height: 50px;
+                    font-size: 18px;
+                    padding: 0 30px;   
+                }
+            }
+            .heroBtn{
+                width: 100px;
+                height: 40px;
+                background: var(--gradient);
+                color: white;
+                outline: 0;
+                border: 0;
+                border-radius: 0 30px 30px 0;
+                font-size: 16px;
+                cursor: pointer;
+                @include md{
+                    width: 100px;
+                    height: 50px;
+                    // font-size: 100px;
+                }
+            }
+        }
+    }
+}
+
+
+// --------Content-----------//
+
+.contentWrap{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
