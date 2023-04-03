@@ -16,20 +16,36 @@ function App() {
   const dispatch = useDispatch()
   const {url} = useSelector((state) => state.home);
 
- useEffect(()=>{
-  fetchApi();
- },[])
+  useEffect(()=>{
+    fetchApi();
+    genres();
+  },[])
 
-const fetchApi = () => {
-  api("/configuration").then((res) => {
-    const url = {
-      backdrop: res.images.secure_base_url + "original",
-      poster: res.images.secure_base_url + "original",
-      profile: res.images.secure_base_url + "original",
-    }
-    dispatch(getApiConfiguration(url))
-  })
-}
+  const fetchApi = () => {
+    api("/configuration").then((res) => {
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+        poster: res.images.secure_base_url + "original",
+        profile: res.images.secure_base_url + "original",
+      }
+      dispatch(getApiConfiguration(url))
+    })
+  }
+
+  const genres = async () => {
+    let promise = [];
+    let endpoints = ["tv", "movie"];
+    let allGenres = {};
+
+    endpoints.forEach((url) => {
+      promise.push(api(`/genre/${url}/list`));
+    });
+
+    const data = await Promise.all(promise);
+    data.map(({genre}) => {
+      return genre.map((itm) => (allGenres[itm.id] = itm));
+    });
+  }
 
   return (
     <BrowserRouter>
