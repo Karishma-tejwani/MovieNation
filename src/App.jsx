@@ -41,7 +41,7 @@ const fetchApi = () => {
       <Route path='/explore/:mediaType' element={<Explore />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
-    {/* <Footer /> */}
+    <Footer />
     </BrowserRouter>
   )
 }
