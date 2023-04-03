@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import api from './utils/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { getApiConfiguration } from './store/homeSlice';
@@ -33,7 +33,7 @@ const fetchApi = () => {
 
   return (
     <BrowserRouter>
-    {/* <Header /> */}
+    <Header />
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/:mediaType/:id' element={<Details />} />
