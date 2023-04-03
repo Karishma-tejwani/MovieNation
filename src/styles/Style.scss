@@ -391,10 +391,10 @@
             opacity: 0.8;
         }
     }
-    .carouselLeftNav {
+    .leftArrow {
         left: 30px;
     }
-    .carouselRighttNav {
+    .RightArrow {
         right: 30px;
     }
     .loadingSkeleton {
@@ -489,7 +489,7 @@
                         object-position: center;
                     }
                 }
-                .circleRating {
+                .rating {
                     width: 40px;
                     height: 40px;
                     position: relative;
@@ -534,7 +534,7 @@
 }
 
 // ---------Rating--------//
-.circleRating {
+.rating {
     background-color: var(--black);
     border-radius: 50%;
     padding: 2px;

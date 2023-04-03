@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import {
-    BsFillArrowLeftCircleFill,
-    BsFillArrowRightCircleFill,
-} from "react-icons/bs";
+    BiLeftArrowAlt,
+    BiRightArrowAlt,
+} from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs"; //used for date format
@@ -37,8 +37,8 @@ const Carousel = ({data, loading}) => {
     return (
         <div className="carousel">
             <ContentWrap>
-                <BsFillArrowLeftCircleFill className="carouselLeftNav arrow" onClick={() => navigationHandler("left")} />
-                <BsFillArrowRightCircleFill className="carouselRighttNav arrow" onClick={() => navigationHandler("right")} />
+                <BiLeftArrowAlt className="leftArrow arrow" onClick={() => navigationHandler("left")} />
+                <BiRightArrowAlt className="RightArrow arrow" onClick={() => navigationHandler("right")} />
 
                 {!loading ? (
                     <div className="carouselItems">
