@@ -48,6 +48,7 @@ const Carousel = ({data, loading}) => {
                                 <div key={itm.id} className="carouselItem">
                                     <div className="posterBlock">  
                                         <LazyLoadImg src={postUrl} alt="Poster" />
+                                        <Ratings rating={itm.vote_average.toFixed(1)} />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
