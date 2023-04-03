@@ -9,6 +9,7 @@ import dayjs from "dayjs"; //used for date format
 import ContentWrap from "./ContentWrap";
 import LazyLoadImg from "./lazyLoadImg";
 import poster from "../assets/movie-poster.png";
+import Ratings from "./Ratings";
 
 const Carousel = ({data, loading}) => {
 
