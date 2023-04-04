@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import api from "../utils/api";
 import ContentWrap from "../components/ContentWrap";
-import notFound from "../assets/not-found.png";
 import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import Card from "../components/Card";
