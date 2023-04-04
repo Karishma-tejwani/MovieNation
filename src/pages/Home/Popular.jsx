@@ -24,7 +24,11 @@ function Popular() {
                     onTabChange = {onTabChange}
                 />
             </ContentWrap>
-            <Carousel data={data?.results} loading={loading} />
+            <Carousel 
+                data={data?.results} 
+                loading={loading} 
+                endpoint={endpoint}
+            />
         </div>
     )
 }
