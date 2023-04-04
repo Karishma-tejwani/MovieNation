@@ -69,11 +69,15 @@ const Header = () => {
       window.scrollTo(0, 0);
     }, [location])
 
+    const navigation = () => {
+      navigate("/");
+    }
+
     return (
         <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
           <ContentWrap>
             <div className="logo">
-              <img src={logo} alt="Logo"/>
+              <img src={logo} alt="Logo" onClick={navigation} />
             </div>
             <ul className="menuItems">
               <li className="menuItem" onClick={() => navigationHandler("movie")}>Movies</li>
