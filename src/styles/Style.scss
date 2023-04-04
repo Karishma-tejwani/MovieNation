@@ -488,10 +488,10 @@
                 }
             }
             .rating {
-                max-width: 70px;
+                max-width: 50px;
                 background-color: var(--black2);
                 @include md {
-                    max-width: 90px;
+                    max-width: 60px;
                 }
                 .CircularProgressbar-text {
                     fill: white;
@@ -503,9 +503,9 @@
                 gap: 20px;
                 cursor: pointer;
                 svg {
-                    width: 60px;
+                    width: 50px;
                     @include md {
-                        width: 80px;
+                        width: 60px;
                     }
                 }
                 .playtext {
@@ -557,7 +557,7 @@
                     display: flex;
                     flex-flow: row wrap;
                 }
-                .playtext {
+                .infoText {
                     margin-right: 10px;
                     opacity: 0.5;
                     line-height: 24px;

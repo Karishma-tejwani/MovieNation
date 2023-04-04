@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import ContentWrap from "../../components/ContentWrap";
@@ -16,13 +16,16 @@ const DetailsBanner = ({ video, crew }) => {
     const {data, loading} = useFetch(`/${mediaType}/${id}`);
     const {url} = useSelector((state) => state.home);
 
+    const _genres = data?.genres?.map((genre) => genre.id);
+
+    // const director = crew?.filter((filt) => filt.job === "Director");
+    // const writer = crew?.filter((filt) => filt.job === "Writer" || filt.job === "Story" || filt.job === "Screenplay");
+
     const toHoursAndMinutes = (totalMinutes) => {
         const hours = Math.floor(totalMinutes / 60);
         const minutes = totalMinutes % 60;
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
-
-    const _genres = data?.genres?.map((genre) => genre.id);
 
     return (
         <div className="detailsBanner">
@@ -49,6 +52,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             />
                                         )}
                                     </div>
+
                                     <div className="rightBanner">
                                         <div className="rightTitle">
                                             {`${
@@ -57,19 +61,95 @@ const DetailsBanner = ({ video, crew }) => {
                                                 data?.release_Date
                                                 ).format("YYYY")})`}
                                         </div>
+
                                         <div className="rightSubTitle">
                                             {data.tagline}
                                         </div>
+                                        
                                         <Genres data={_genres}/>
+
                                         <div className="row">
                                             <Ratings rating={data.vote_average.toFixed(1)} />
-                                        </div>
-                                        <div className="playbtn">
-                                            <PlayButton />
-                                            <div className="playtext">
-                                                Trailer
+                                            <div className="playbtn" onClick={() => {}}>
+                                                <PlayButton />
+                                                <div className="playtext">
+                                                    Trailer
+                                                </div>
                                             </div>
                                         </div>
+
+                                        <div className="overview">
+                                            <div className="heading">Overview</div>
+                                            <div className="description">{data.overview}</div>
+                                        </div>
+
+                                        <div className="info">
+                                            {data.status && (
+                                                <div className="infoItem">
+                                                    <span className="infoText bold">Status: {" "}</span>
+                                                    <span className="infoText">{data.status}</span>
+                                                </div>
+                                            )}
+
+                                            {data.release_date && (
+                                                <div className="infoItem">
+                                                    <span className="infoText bold">Release Date: {" "}</span>
+                                                    <span className="infoText">{data.status}</span>
+                                                </div>
+                                            )}  
+
+                                            {data.runtime && (
+                                                <div className="infoItem">
+                                                    <span className="infoText bold">Runtime: {" "}</span>
+                                                    <span className="infoText">
+                                                        {toHoursAndMinutes(data.runtime)}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* {director?.length > 0 && (
+                                            <div className="info">
+                                                <span className="infoText bold">Director: {" "}</span>
+                                                <span className="infoText">
+                                                    {director?.map((direct, index) => {
+                                                        <span key={index}>
+                                                            {direct.name}
+                                                            {director.length - 1 !== index && ", "}
+                                                        </span>
+                                                    })}
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        {writer?.length > 0 && (
+                                            <div className="info">
+                                                <span className="infoText bold">Writer: {" "}</span>
+                                                <span className="infoText">
+                                                    {writer?.map((write, index) => {
+                                                        <span key={index}>
+                                                            {write.name}
+                                                            {console.log(write.name)}
+                                                            {writer.length - 1 !== index && ", "}
+                                                        </span>
+                                                    })}
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        {data?.created_by?.length > 0 && (
+                                            <div className="info">
+                                                <span className="infoText bold">Creator: {" "}</span>
+                                                <span className="infoText">
+                                                    {data?.created_by?.map((create, index) => {
+                                                        <span key={index}>
+                                                            {create.name}
+                                                            {data?.created_by.length - 1 !== index && ", "}
+                                                        </span>
+                                                    })}
+                                                </span>
+                                            </div>
+                                        )} */}
                                     </div>
                                 </div>
                             </ContentWrap>
