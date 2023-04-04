@@ -12,7 +12,7 @@ import poster from "../assets/movie-poster.png";
 import Ratings from "./Ratings";
 import Genres from "./Genres";
 
-const Carousel = ({data, loading}) => {
+const Carousel = ({data, loading, endpoint}) => {
 
     //carousel container will get reference of carousel Items
     const carouselCont = useRef();
@@ -47,8 +47,14 @@ const Carousel = ({data, loading}) => {
     return (
         <div className="carousel">
             <ContentWrap>
-                <BiLeftArrowAlt className="leftArrow arrow" onClick={() => navigationHandler("left")} />
-                <BiRightArrowAlt className="RightArrow arrow" onClick={() => navigationHandler("right")} />
+                <BiLeftArrowAlt 
+                    className="leftArrow arrow" 
+                    onClick={() => navigationHandler("left")} 
+                />
+                <BiRightArrowAlt 
+                    className="RightArrow arrow" 
+                    onClick={() => navigationHandler("right")} 
+                />
 
                 {!loading ? (
                     <div className="carouselItems" ref={carouselCont}>
@@ -58,7 +64,7 @@ const Carousel = ({data, loading}) => {
                                 <div 
                                     key={itm.id} 
                                     className="carouselItem"
-                                    onClick={() => navigate(`/${itm.media_type}/${itm.id}`)}
+                                    onClick={() => navigate(`/${itm.media_type || endpoint}/${itm.id}`)}
                                 >
                                     <div className="posterBlock">  
                                         <LazyLoadImg src={postUrl} alt="Poster" />
