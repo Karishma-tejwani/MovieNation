@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroBanner from "./heroBanner";
-import Trending from "./Trending";
+import Discover from "./Discover";
 import Popular from "./Popular";
 import TopRated from './TopRated';
 
@@ -9,8 +9,8 @@ const Home = () => {
     <div className='home'>
       <HeroBanner />
       <Popular />
-      <Trending />
       <TopRated />
+      <Discover />
     </div>
   )
 }
