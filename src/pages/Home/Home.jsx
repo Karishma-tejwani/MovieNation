@@ -2,6 +2,7 @@ import React from 'react';
 import HeroBanner from "./heroBanner";
 import Trending from "./Trending";
 import Popular from "./Popular";
+import TopRated from './TopRated';
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       <HeroBanner />
       <Popular />
       <Trending />
-      <div style={{height:1000}}></div>
+      <TopRated />
     </div>
   )
 }
