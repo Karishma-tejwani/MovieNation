@@ -3,6 +3,7 @@ import DetailsBanner from './DetailsBanner'
 import useFetch from '../../hooks/useFetch';
 import { useParams } from "react-router-dom";
 import Cast from './Cast';
+import OfficialVideos from './OfficialVideos';
 
 const Details = () => {
 
@@ -17,6 +18,7 @@ const Details = () => {
         crew={credits?.crew}
       />
       <Cast data={credits?.cast} loading={LoadCredits}/>
+      <OfficialVideos data={data} loading={loading}/>
     </div>
   )
 }
