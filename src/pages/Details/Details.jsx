@@ -4,7 +4,7 @@ import DetailsBanner from './DetailsBanner'
 const Details = () => {
   return (
     <div>
-      {/* <DetailsBanner /> */}
+      <DetailsBanner />
     </div>
   )
 }
