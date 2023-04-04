@@ -10,6 +10,7 @@ import Genres from "../../components/Genres";
 import poster from "../../assets/movie-poster.png";
 import PlayButton from "./PlayButton";
 import VideoPlay from "./VideoPlay";
+import Cast from "./Cast";
 
 const DetailsBanner = ({ video, crew }) => {
 
