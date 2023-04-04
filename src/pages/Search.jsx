@@ -5,6 +5,7 @@ import ContentWrap from "../components/ContentWrap";
 import notFound from "../assets/not-found.png";
 import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import Card from "../components/Card";
 
 const Search = () => {
   const [data, setData] = useState(null);
@@ -34,6 +35,7 @@ const Search = () => {
   };
 
   useEffect(() => {
+    setNum(1);
     fetchData();
   }, [query]);
 
@@ -42,13 +44,25 @@ const Search = () => {
       {loading && <Spinner initial={true} />}
       {!loading && (
         <ContentWrap>
-          {data.results.length > 0 ? (
+          {data?.results?.length > 0 ? (
             <>
               <div className="pageTitle">
                 {`Search ${
-                  data.total_results > 1 ? "results" : "result"
+                  data?.total_results > 1 ? "results" : "result"
                 } of '${query}'`}
               </div>
+              <InfiniteScroll
+                className="content"
+                dataLength={data?.results?.length || []}
+                next={fetchNextPageData}
+                hasMore={num <= data?.total_pages}
+                loader={<Spinner />}
+              >
+                {data?.results?.map((item, ind) => {
+                  if (item.media_type === "person") return;
+                  return <Card key={ind} data={item} fromSearch={true} />;
+                })}
+              </InfiniteScroll>
             </>
           ) : (
             <span className="resultNotFound">No Results found!</span>
