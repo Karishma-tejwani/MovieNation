@@ -547,3 +547,17 @@
         stroke: transparent;
     }
 }
+
+// ---------Genres--------//
+.genres{
+    display: flex;
+    gap: 5px;
+    .genre{
+        background-color: var(--gold);
+        padding: 3px 5px;
+        font-size: 16px;
+        border-radius: 4px;
+        color: white;
+        white-space: nowrap;
+    }
+}
