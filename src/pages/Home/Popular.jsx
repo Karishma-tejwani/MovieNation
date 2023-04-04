@@ -17,7 +17,7 @@ function Popular() {
         <div className="carouselSection">
             <ContentWrap>
                 <span className="carouselTitle">
-                    What's Popular
+                    See More Popular
                 </span>
                 <Switching 
                     data = {["Movies", "TV Shows"]} 
