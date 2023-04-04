@@ -1,5 +1,5 @@
 import React from "react";
-import ContentWrap from "./contentWrap";
+import ContentWrap from "./ContentWrap";
 import {
     FaFacebookF,
     FaInstagram,
@@ -11,12 +11,12 @@ const Footer = () => {
     return (
         <footer className="footer">
             <ContentWrap>
-                <ul className="menuItems">
-                    <li className="menuItem">Terms Of Use</li>
-                    <li className="menuItem">Privacy-Policy</li>
-                    <li className="menuItem">About</li>
-                    <li className="menuItem">Blog</li>
-                    <li className="menuItem">FAQ</li>
+                <ul className="footerItems">
+                    <li className="footerItem">Terms Of Use</li>
+                    <li className="footerItem">Privacy-Policy</li>
+                    <li className="footerItem">About</li>
+                    <li className="footerItem">Blog</li>
+                    <li className="footerItem">FAQ</li>
                 </ul>
                 <div className="infoText">
                     Movie Nation is a platform that offers a wide variety of movies and TV shows to users.

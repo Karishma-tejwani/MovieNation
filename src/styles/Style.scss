@@ -286,18 +286,20 @@
         align-items: center;
         flex-direction: column;
     }
-    .menuItems {
+    .footerItems {
         list-style-type: none;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 15px;
         margin-bottom: 20px;
+        margin-top: 40px;
         @include md {
             margin-bottom: 30px;
+            margin-top: 50px;
             gap: 30px;
         }
-        .menuItem {
+        .footerItem {
             transition: all ease 0.3s;
             cursor: pointer;
             font-size: 12px;
