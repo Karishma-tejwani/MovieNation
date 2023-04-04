@@ -24,7 +24,21 @@ const OfficialVideos = ({ data, loading }) => {
                 <div className="sectionHeading">Official Videos</div>
                 {!loading ? (
                     <div className="videos">
-                        Videos data...
+                        {data?.results?.map((video) => {
+                            <div 
+                                key={video.id} 
+                                className="videoItem"
+                                onClick={() => {
+                                    setVideoId(video.key)
+                                    setShow(true)
+                                }}
+                            >
+                                <div className="videoThumbnail">
+                                    <LazyLoadImg src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`} />
+                                    <PlayButton />
+                                </div>
+                            </div>
+                        })}
                     </div>
                 ) : (
                     <div className="videoSkeleton">

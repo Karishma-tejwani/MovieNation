@@ -18,7 +18,7 @@ const Details = () => {
         crew={credits?.crew}
       />
       <Cast data={credits?.cast} loading={LoadCredits}/>
-      <OfficialVideos data={data} loading={loading}/>
+      {/* <OfficialVideos data={data} loading={loading}/> */}
     </div>
   )
 }
