@@ -14,13 +14,22 @@ import Genres from "./Genres";
 
 const Carousel = ({data, loading}) => {
 
-    //get reference of every div
+    //carousel container will get reference of carousel Items
     const carouselCont = useRef();
     const {url} =  useSelector((state) => state.home);
     const navigate = useNavigate();
 
     const navigationHandler = (direction) => {
+        const cont = carouselCont.current;
+        
+        const scroll = direction === "left" 
+        ? cont.scrollLeft - (cont.offsetWidth + 20)
+        : cont.scrollLeft + (cont.offsetWidth + 20);
 
+        cont.scrollTo({
+            left: scroll,
+            behavior: "smooth",
+        });
     }
 
     const skeletonItem = () => {
@@ -42,15 +51,19 @@ const Carousel = ({data, loading}) => {
                 <BiRightArrowAlt className="RightArrow arrow" onClick={() => navigationHandler("right")} />
 
                 {!loading ? (
-                    <div className="carouselItems">
+                    <div className="carouselItems" ref={carouselCont}>
                         {data?.map((itm) => {
                             const postUrl = itm.poster_path ? url.poster + itm.poster_path : poster;
                             return(
-                                <div key={itm.id} className="carouselItem">
+                                <div 
+                                    key={itm.id} 
+                                    className="carouselItem"
+                                    onClick={() => navigate(`/${itm.media_type}/${itm.id}`)}
+                                >
                                     <div className="posterBlock">  
                                         <LazyLoadImg src={postUrl} alt="Poster" />
                                         <Ratings rating={itm.vote_average.toFixed(1)} />
-                                        <Genres data={itm.genre_ids} />
+                                        <Genres data={itm.genre_ids.slice(0,2)} />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
