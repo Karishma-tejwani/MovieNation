@@ -7,7 +7,7 @@ import Switching from "../../components/Switching";
 function TopRated() {
 
     const [endpoint, setEndpoint] = useState("movie");
-    const {data, loading} = useFetch(`/${endpoint}/popular`);
+    const {data, loading} = useFetch(`/${endpoint}/top_rated`);
 
     const onTabChange = (tab) => {
         setEndpoint(tab === "Movies" ? "movie" : "tv" );
@@ -17,7 +17,7 @@ function TopRated() {
         <div className="carouselSection">
             <ContentWrap>
                 <span className="carouselTitle">
-                    See More Popular
+                    Top Rated
                 </span>
                 <Switching 
                     data = {["Movies", "TV Shows"]} 
