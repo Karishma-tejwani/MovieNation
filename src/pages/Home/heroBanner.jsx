@@ -33,9 +33,7 @@ const HeroBanner = () => {
       {!loading && <div className='image'>
         <LazyLoadImg src={bg} />
       </div>}
-      <div className='layer'>
-
-      </div>
+      <div className='layer'></div>
       <ContentWrap>
         <div className='content'>
           <span className='title'>Welcome.</span>
