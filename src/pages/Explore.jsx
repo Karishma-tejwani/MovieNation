@@ -4,7 +4,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Select from "react-select";
 import useFetch from "../hooks/useFetch";
 import api from "../utils/api";
-import notFound from "../assets/not-found.png";
 import ContentWrap from "../components/ContentWrap";
 import Spinner from "../components/Spinner";
 import Card from "../components/Card";
