@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
 import ReactPlayer from "react-player/youtube";
 
 const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
@@ -11,7 +12,7 @@ const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
             <div className="opacityLayer" onClick={hidePopup}></div>
             <div className="videoPlayer">
                 <span className="closeBtn" onClick={hidePopup}>
-                    Close
+                    <AiOutlineClose />
                 </span>
                 <ReactPlayer
                     url={`https://www.youtube.com/watch?v=${videoId}`}

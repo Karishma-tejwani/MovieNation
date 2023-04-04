@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -9,8 +9,12 @@ import Ratings from "../../components/Ratings";
 import Genres from "../../components/Genres";
 import poster from "../../assets/movie-poster.png";
 import PlayButton from "./PlayButton";
+import VideoPlay from "./VideoPlay";
 
 const DetailsBanner = ({ video, crew }) => {
+
+    const [show, setShow] = useState(false);
+    const [videoId, setVideoId] = useState(null);
 
     const {mediaType, id} = useParams();
     const {data, loading} = useFetch(`/${mediaType}/${id}`);
@@ -70,7 +74,13 @@ const DetailsBanner = ({ video, crew }) => {
 
                                         <div className="row">
                                             <Ratings rating={data.vote_average.toFixed(1)} />
-                                            <div className="playbtn" onClick={() => {}}>
+                                            <div 
+                                                className="playbtn" 
+                                                onClick={() => {
+                                                    setShow(true)
+                                                    setVideoId(video.key)
+                                                }}
+                                            >
                                                 <PlayButton />
                                                 <div className="playtext">
                                                     Trailer
@@ -152,6 +162,12 @@ const DetailsBanner = ({ video, crew }) => {
                                         )} */}
                                     </div>
                                 </div>
+                                <VideoPlay 
+                                    show={show}
+                                    setShow={setShow}
+                                    videoId={videoId}
+                                    setVideoId={setVideoId}
+                                />
                             </ContentWrap>
                         </>
                     )}
