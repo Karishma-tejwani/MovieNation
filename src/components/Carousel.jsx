@@ -10,6 +10,7 @@ import ContentWrap from "./ContentWrap";
 import LazyLoadImg from "./lazyLoadImg";
 import poster from "../assets/movie-poster.png";
 import Ratings from "./Ratings";
+import Genres from "./Genres";
 
 const Carousel = ({data, loading}) => {
 
@@ -49,6 +50,7 @@ const Carousel = ({data, loading}) => {
                                     <div className="posterBlock">  
                                         <LazyLoadImg src={postUrl} alt="Poster" />
                                         <Ratings rating={itm.vote_average.toFixed(1)} />
+                                        <Genres data={itm.genre_ids} />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
