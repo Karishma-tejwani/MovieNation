@@ -13,7 +13,7 @@ const HeroBanner = () => {
 
   const navigate = useNavigate();
   
-  const {data, loading} = useFetch("/movie/popular")
+  const {data, loading} = useFetch("/movie/popular");
 
   const {url} = useSelector((state) => state.home);
 
