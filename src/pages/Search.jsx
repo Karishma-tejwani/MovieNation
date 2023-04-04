@@ -37,7 +37,26 @@ const Search = () => {
     fetchData();
   }, [query]);
 
-  return <div className="searchResultsPage">Search</div>;
+  return (
+    <div className="searchResultsPage">
+      {loading && <Spinner initial={true} />}
+      {!loading && (
+        <ContentWrap>
+          {data.results.length > 0 ? (
+            <>
+              <div className="pageTitle">
+                {`Search ${
+                  data.total_results > 1 ? "results" : "result"
+                } of '${query}'`}
+              </div>
+            </>
+          ) : (
+            <span className="resultNotFound">No Results found!</span>
+          )}
+        </ContentWrap>
+      )}
+    </div>
+  );
 };
 
 export default Search;
